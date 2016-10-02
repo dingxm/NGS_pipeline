@@ -7,7 +7,7 @@ human_coding_bed="/u/home/d/dingxm/hg19_coding_merge.bed"
 mkdir BWA_Alignment
 echo `date`
 RG='@RG\tID:'$i'\tSM:'$i'\tLB:'$i'\tPL:illumina'
-#bwa mem $reference -t 4 -M -R "$RG" $i/${i}*_R1.fastq* $i/${i}*_R2.fastq* | samtools view -bS - > BWA_Alignment/${i}.bam
+bwa mem $reference -t 4 -M -R "$RG" $i/${i}*_R1.fastq* $i/${i}*_R2.fastq* | samtools view -bS - > BWA_Alignment/${i}.bam
 #  #describe=`echo ${i} | sed 's/.bam//'`
 i=$1
  samtools sort ${i}_thout/accepted_hits.bam BWA_Alignment/${i}.sorted
